@@ -4,8 +4,8 @@ function [ Folder ] = SharedSpectraFolders( ~ )
 %       Used in spectra_from_liwangV4_ui.m, TFscanCalibCGNN_V2.m,
 %       applyNN2SingleTest_V2.m
 %   OUTPUT -   Folder (structure)
-laptop='C:\Users\Troy\Dropbox\';
-laptopDoc = 'C:\Users\Troy\Documents\';
+laptop='C:\Users\colto\Desktop\research practice\repo\stable\dropbox\';
+laptopDoc = 'C:\Users\colto\Desktop\research practice\repo\stable\documents\';
 desktop='C:\Users\User\Dropbox\';
 desktopDoc = 'C:\Users\User\Documents\';
     A=exist(laptop,'dir');

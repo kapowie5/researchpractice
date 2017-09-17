@@ -26,33 +26,21 @@ clc
 clear all
 
 %%
-[ Folder ] = SharedSpectraFolders;
-cd(Folder.Input)
-open('LeuvenSpectralSupportProgramInputParameters.m')
-pause
-[ Inputs ] = LeuvenSpectralSupportProgramInputParameters;
+%[ Folder ] = SharedSpectraFolders;
+%cd(Folder.Input)
+%open('LeuvenSpectralSupportProgramInputParameters.m')
+%pause
+%[ Inputs ] = LeuvenSpectralSupportProgramInputParameters;
 
-Folder.SpectraExpHome=uigetdir([Folder.Doc,Folder.mainDir,Folder.fspec]);
-cd(Folder.SpectraExpHome)
-dirs = regexp(genpath(pwd),['[^;]*'],'match');
-for i = 2:length(dirs)
-    Folder.TempCell{1,i-1}=dirs{1,i};
-end
-xstruct=dir;
-xcell=struct2cell(xstruct);
-for i = 1:length(xstruct)
-    xcellnames{1,i}=xcell{1,i};
-end
-temp = regexp(xcellnames,'.*\.calib','match');
-temp(cellfun(@isempty,temp)) = [];
-for i = 1:length(temp)
-    FileName.CalibCell{1,i} = temp{1,i}{1,1};
-end
+%Folder.SpectraExpHome=uigetdir([Folder.Doc,Folder.mainDir,Folder.fspec]);
+%cd(Folder.SpectraExpHome)
+%dirs = regexp(genpath(pwd),['[^;]*'],'match');
+%for i = 2:length(dirs)
+%    Folder.TempCell{1,i-1}=dirs{1,i};
+%end
+%xstruct=dir;
 
-%% Try and find the Indices for Fluorescence, Grn, Bump, etc.
-[y,Fs] = audioread([Folder.Sound,'\Finding Indices.mp3']);sound(y,Fs);
-cd(Folder.Programs)
-LeuvenSpectralAnalysisProgramFindFluoroIndices_V2;
+
 
 %% 1 - Calibration files processing
 FileName.numCalibCell = length(FileName.CalibCell);
