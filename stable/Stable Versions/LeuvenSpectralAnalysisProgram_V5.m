@@ -1,4 +1,4 @@
-1% Select a folder with calibrated and modulated spectra
+% Select a folder with calibrated and modulated spectra
 	%       Version 4 is meant to reduce memory usage by deleting SpectraDataMod info and working toward slope
 	%       calculation and diffusivity calculation
 	%       Version 5 includes NN application for temperature
