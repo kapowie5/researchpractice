@@ -25,7 +25,7 @@ clc
 % close all
 clear all
 
-%%
+%% Need to simplify folder structure
 [ Folder ] = SharedSpectraFolders;
 cd(Folder.Input)
 open('LeuvenSpectralSupportProgramInputParameters.m')
@@ -50,6 +50,7 @@ for i = 1:length(temp)
 end
 
 %% Try and find the Indices for Fluorescence, Grn, Bump, etc.
+%%take wavelenth as an input
 [y,Fs] = audioread([Folder.Sound,'\Finding Indices.mp3']);sound(y,Fs);
 cd(Folder.Programs)
 LeuvenSpectralAnalysisProgramFindFluoroIndices_V2;
@@ -93,13 +94,13 @@ end
 SpectraData.ThetaAll  = tempAll_3;
 SpectraData.ThetaNorm = tempNorm_3;
 
-cd(Folder.Temperature)
-TempFolderName = [FileData.monthStr,FileData.dateStr];
-mkdir(TempFolderName);
-cd([Folder.Temperature,'\',TempFolderName])
-dlmwrite([TempFolderName,', TC.txt'], TempTC)
-dlmwrite([TempFolderName,', TempK.txt'], TempK)
-dlmwrite([TempFolderName,', TempC.txt'], TempC)
+% cd(Folder.Temperature)
+% TempFolderName = [FileData.monthStr,FileData.dateStr];
+% mkdir(TempFolderName);
+% cd([Folder.Temperature,'\',TempFolderName])
+% dlmwrite([TempFolderName,', TC.txt'], TempTC)
+% dlmwrite([TempFolderName,', TempK.txt'], TempK)
+% dlmwrite([TempFolderName,', TempC.txt'], TempC)
 
 %% Run NN Calibration Process
 [y,Fs] = audioread([Folder.Sound,'\Training Neural Network.mp3']);sound(y,Fs);

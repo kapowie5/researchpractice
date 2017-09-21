@@ -1,6 +1,7 @@
 function [W1,W2,PI_vector,iteration,lambda]=nnnmarq(NetDef,W1,W2,PHI,Y,PHItest,Ytest,trparms,par)
 %  MARQ
 %  ----
+%%nonlinear curve fitting
 %          laatste wijziging: 23-4-1998
 %          Train a two layer neural network with the Levenberg-Marquardt
 %          method. If desired, it is possible to use regularization by

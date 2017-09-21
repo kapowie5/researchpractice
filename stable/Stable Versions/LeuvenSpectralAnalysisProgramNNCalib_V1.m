@@ -83,8 +83,8 @@ for NNloop = 1:Inputs.NNVariations
     test_Q=RandIndex(size(theta,1)*factor4train+1:end);
     % save train_Q.mat train_Q
     % save test_Q.mat test_Q
-    input_train=theta(train_Q,input_Q);
-    target_train=theta(train_Q,end);
+    input_train=theta(train_Q,input_Q); 
+    target_train=theta(train_Q,end); %temperature, provided output
     input_test=theta(test_Q,input_Q);
     target_test=theta(test_Q,end);
 
@@ -98,7 +98,6 @@ for NNloop = 1:Inputs.NNVariations
     load param.nn
 
     cd(savingFolder)
-
     param([1,2])=[2,2];% configuration for NN
     param([3,4])=[1,cg2-1];     % input colums
     param([5,6])=[cg2,cg2];     % target colums

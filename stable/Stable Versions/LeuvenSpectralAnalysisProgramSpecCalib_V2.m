@@ -94,6 +94,7 @@ function [SpectraData] = LeuvenSpectralAnalysisProgramSpecCalib_V1 (Folder,FileN
     SpectraData.BaseSubtracted=SpectraData.Raw-SpectraData.BaseValues*ones(1,size(SpectraData.Raw,2));
 
     %Smooth spectra
+    % !!!!!!!!!!!!!!!!!!!!!Get rid of !!!!!!!!!!!!!!!!!!!
     fprintf(horzcat('Currently Smoothing Spectra','\n'));
     for ii=1:SpectraData.NumSpec
         SpectraData.Smoothed(ii,:)=filter_mean(SpectraData.BaseSubtracted(ii,1:end),Inputs.Nx); %
@@ -104,7 +105,7 @@ function [SpectraData] = LeuvenSpectralAnalysisProgramSpecCalib_V1 (Folder,FileN
     cd(Folder.Sources)
 
     % Loop through each spectra collected
-    for isp=1:SpectraData.NumSpec;
+    %Creates input parameters for NN
         %At each temperature, the peak wavelength and the intensity at that
         %spectra are found
         [SpectraData.PeakIntensity(isp,:),SpectraData.PeakWL(isp,:)]=...
